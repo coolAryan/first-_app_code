@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+mypress() {
+  print("Something Clicked");
+}
+
+mypress2() {
+  print(" after");
+}
+
+myapp() {
+  var x = Text(
+    "This Is it.",
+    textDirection: TextDirection.ltr,
+    style: TextStyle(
+      //fontSize: 42,
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+      color: Colors.redAccent.withOpacity(0.6),
+    ),
+    textAlign: TextAlign.center,
+  );
+  var url =
+      'https://raw.githubusercontent.com/coolAryan/flutter_image/master/images.jpg';
+  var myimage = Image.network(
+    url,
+    width: double.infinity,
+    height: double.infinity,
+  );
+  var myicon = Icon(
+    Icons.email,
+    color: Colors.amber,
+  );
+  var icon2 = Icon(
+    Icons.access_alarm,
+    color: Colors.redAccent.shade400,
+  );
+  var iconButton = IconButton(icon: myimage, onPressed: mypress);
+  var iconButton2 = IconButton(icon: icon2, onPressed: mypress2);
+  var myappBar = AppBar(
+    title: x,
+    backgroundColor: Colors.blueAccent,
+    leading: myicon,
+    actions: <Widget>[
+      iconButton,
+      iconButton2,
+      Icon(Icons.arrow_forward),
+    ],
+  );
+  var myhome = Scaffold(
+    appBar: myappBar,
+    body: myimage,
+    backgroundColor: Colors.grey.shade400,
+  );
+  var design = MaterialApp(
+    home: myhome,
+    debugShowCheckedModeBanner: false,
+  );
+
+  return design;
+}
